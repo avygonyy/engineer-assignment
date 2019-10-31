@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/subscribe-ajax', 'SubscribeController@subscribeAjax')->middleware('only.ajax')->name('subscribeAjax');
+Route::get('/confirm-subscription/{emailVerificationId}', 'SubscribeController@confirmSubscription')->name('confirmSubscription');

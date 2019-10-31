@@ -1,0 +1,53 @@
+.flash-message {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 15px;
+    width: 50%;
+    max-width: 500px;
+    min-width: 200px;
+}
+
+/* The alert message box */
+.alert {
+    position: relative;
+    font-weight: bold;
+    padding: 15px 30px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.alert-danger {
+    background-color: #f44336; /* Red */
+}
+
+.alert-warning {
+    background-color: #ff9800; /* Yellow */
+}
+
+.alert-info {
+    background-color: #2196F3; /* Blue */
+}
+
+.alert-success {
+    background-color: #4CAF50; /* Green */
+}
+
+/* The close button */
+.closebtn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}

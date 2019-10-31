@@ -1,0 +1,88 @@
+.subscribe-newsletter {
+    background-color: #2ecc71;
+    font-family: source-sans-pro, sans-serif;
+    display: block;
+    position: fixed;
+    width: 50%;
+    height: 250px;
+    bottom: 0;
+    right: 0;
+    padding: 25px;
+    border-left: 5px solid black;
+    border-top: 5px solid black;
+}
+
+.subscribe-newsletter h1 {
+    margin-left: auto;
+    margin-top: 50px;
+    text-align: center;
+    font-weight: 100;
+    font-size: 2.8em;
+    color: #ffffff;
+}
+
+.subscribe-newsletter form input {
+    background-color: #2ecc71;
+    padding: 20px;
+    width: 400px;
+    margin-bottom: 20px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #ecf0f1;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    font-size: 1em;
+    font-weight: 100;
+    color: #ffffff;
+}
+
+.subscribe-newsletter form button[type="submit"] {
+    background-color: #ffffff;
+    display: block;
+    color: #2ecc71;
+    font-size: 22px;
+    font-weight: 500;
+    padding: 6px 18px;
+    margin-top: 15px;
+    margin-right: 40px;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    -ms-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+}
+
+.subscribe-newsletter form button[type="submit"]:hover {
+    background-color: #5d8a70;
+    color: #ffffff;
+}
+
+.subscribe-newsletter form button[type="submit"]:active {
+    position: relative;
+    top: 3px;
+}
+
+/*To remove the outline that appears on clicking the input textbox*/
+.subscribe-newsletter form input:focus {
+    outline: none;
+}
+
+/* To format the placeholder text color */
+::-webkit-input-placeholder {
+    color: #ecf0f1;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: #ecf0f1;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+    color: #ecf0f1;
+}
+
+:-ms-input-placeholder {
+    color: #ecf0f1;
+}
