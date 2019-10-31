@@ -22,10 +22,30 @@ class SubscribeController extends Controller
     {
         $properties = [
             'name' => 'required|max:150',
-            'email' => 'required|email|max:150|unique:subscription,email'
+            'email' => 'required|email|max:150'
         ];
 
         $this->validate($request, $properties);
+
+        $subscription = $this->subscriptionService->findByEmail($request->email);
+
+        if ($subscription !== null) {
+            if ($subscription->email_verified_at !== null) {
+                return response()->json([
+                    'errors' => [
+                        'mail' => [__('Email :email is already subscribed', [
+                            'email' => $subscription->email
+                        ])]
+                    ]
+                ], 400);
+            }
+
+            return response()->json([
+                'errors' => [
+                    'mail' => [__('Subscription mail is already sent')]
+                ]
+            ], 400);
+        }
 
         $this->subscriptionService->subscribe($request->name, $request->email);
 

@@ -3,12 +3,16 @@
 $(function () {
     $('.subscribe-newsletter').on('submit', 'form', function () {
         let $form = $(this);
+        let $submit = $form.find('button[type="submit"]');
+        $submit.attr('disabled', true);
+
         subscribe($form)
             .then(response => {
                 $(document).find('.flash-message').append(`
                     <p class="alert alert-success">${response.message} <span class="closebtn">&times;</span></p>
                 `);
                 $form[0].reset();
+                $submit.attr('disabled', false);
             })
             .catch(error => {
                 let errors = error.errors || error.message || "Unhandled Error";
@@ -16,17 +20,19 @@ $(function () {
                     $(document).find('.flash-message').append(`
                         <p class="alert alert-danger">${errors} <span class="closebtn">&times;</span></p>
                     `);
-                    return false;
+                } else {
+                    let errorMessage = "";
+                    for (let errtype in errors) {
+                        errorMessage += errors[errtype].join("\r\n");
+                        errorMessage += "\r\n";
+                    }
+                    $(document).find('.flash-message').append(`
+                        <p class="alert alert-danger">${errorMessage} <span class="closebtn">&times;</span></p>
+                    `);
                 }
 
-                let errorMessage = "";
-                for (let errtype in errors) {
-                    errorMessage += errors[errtype].join("\r\n");
-                    errorMessage += "\r\n";
-                }
-                $(document).find('.flash-message').append(`
-                    <p class="alert alert-danger">${errorMessage} <span class="closebtn">&times;</span></p>
-                `);
+                $submit.attr('disabled', false);
+
             });
         return false;
     });
